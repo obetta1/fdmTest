@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- SupportMapFragment -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MapsActivity" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/toolbar_Iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginHorizontal="@dimen/margin_20dp"
+        android:outlineAmbientShadowColor="@color/card_white"
+        android:outlineSpotShadowColor="@color/card_white"
+        app:cardBackgroundColor="@color/card_gray"
+        app:cardCornerRadius="@dimen/margin_17dp"
+        app:layout_anchor="@id/map"
+        app:layout_anchorGravity="top"
+        >
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar"
+
+            />
+    </androidx.cardview.widget.CardView>
+    <!-- BottomSheet -->
+    <include
+        android:id="@+id/bottomSheet"
+        layout="@layout/buttomsheet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottomsheet_background"
+        map:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:layout_anchorGravity="bottom"
+        app:layout_anchor="@id/map"
+        />
+    <!-- Floating Action Button -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:layout_marginEnd="@dimen/margin_20dp"
+        android:layout_marginBottom="@dimen/margin_42dp"
+        android:contentDescription="float button"
+        android:src="@drawable/pluss_icon"
+        app:tint="@android:color/white"
+        map:backgroundTint="@color/red"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="621dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

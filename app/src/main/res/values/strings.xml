@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PapyTest</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="schedule_button_des">schedule button</string>
+    <string name="image_des">image</string>
+    <string name="jacks_rolent_stree">jacks rolent stree</string>
+    <string name="_7_45am">7:45am</string>
+    <string name="in_progress"><font color="#FF3700B3">In progress</font></string>
+    <string name="completed"><font color="#FF018786">Completed</font></string>
+    <string name="not_stated">Not stated</string>
+    <string name="_7_express_way_lagos">7, express way lagos</string>
+    <string name="mon_may_12">Mon, May 12</string>
+    <string name="title_activity_maps2">MapsActivity2</string>
+    <string name="_6_scheduled_visit">6 scheduled visit</string>
+</resources>
