@@ -12,6 +12,7 @@
     <dimen name="height_175dp">175dp</dimen>
     <dimen name="margin_40dp">40dp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="bottom_sheet_peek_height">400dp</dimen>
     <dimen name="text_size_24sp">24sp</dimen>
     <dimen name="margin_17dp">17dp</dimen>
     <dimen name="margin_240dp">240dp</dimen>

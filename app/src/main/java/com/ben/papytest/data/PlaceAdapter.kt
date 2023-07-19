@@ -12,18 +12,15 @@ import com.ben.papytest.databinding.PlaceItemsBinding
 
 
 class PlaceAdapter(private val dataList: List<Any>, private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
     companion object {
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1
     }
-
     inner class HeaderViewHolder(private val binding: ItemHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(header: SectionHeader) {
             binding.dateHeader.text = header.title
         }
     }
-
     inner class ItemViewHolder(private val binding: PlaceItemsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SectionItem) {
             binding.placeNameTv.text = item.name
@@ -43,7 +40,6 @@ class PlaceAdapter(private val dataList: List<Any>, private val context: Context
                     binding.statusTv.text = item.status
                 }
             }
-
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -59,7 +55,6 @@ class PlaceAdapter(private val dataList: List<Any>, private val context: Context
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val item = dataList[position]) {
             is SectionHeader -> (holder as HeaderViewHolder).bind(item)
@@ -74,6 +69,5 @@ class PlaceAdapter(private val dataList: List<Any>, private val context: Context
             else -> throw IllegalArgumentException("Invalid view type")
         }
     }
-
     override fun getItemCount(): Int = dataList.size
 }

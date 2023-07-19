@@ -39,16 +39,18 @@
             />
     </androidx.cardview.widget.CardView>
     <!-- BottomSheet -->
-    <include
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottomSheet"
-        layout="@layout/buttomsheet_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottomsheet_background"
-        map:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         app:layout_anchorGravity="bottom"
         app:layout_anchor="@id/map"
-        />
+
+        >
+       <include layout="@layout/buttomsheet_layout"
+           android:background="@drawable/bottomsheet_background"
+           />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <!-- Floating Action Button -->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,9 +59,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:clickable="true"
+        android:elevation="@dimen/margin_12dp"
         android:layout_marginEnd="@dimen/margin_20dp"
         android:layout_marginBottom="@dimen/margin_42dp"
-        android:contentDescription="float button"
+        android:contentDescription="@string/float_button"
         android:src="@drawable/pluss_icon"
         app:tint="@android:color/white"
         map:backgroundTint="@color/red"

@@ -5,11 +5,11 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.ben.papytest.R
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -30,48 +30,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        binding.fabSchedule.setOnClickListener {
-            startActivity(Intent(this, ScheduleActivity::class.java))
-        }
-        setupMapBottonsheet()
+        setUpFab()
+        setUpBottomSheet()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         getCurrentLocation()
     }
-
-    private fun setupMapBottonsheet() {
-        // Set up the bottom sheet behavior
-        val bottomSheet = findViewById<View>(R.id.bottomSheet)
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-        bottomSheetBehavior.isDraggable = true
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-
-            }
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                val translationY = -slideOffset * bottomSheet.height
-                bottomSheet.translationY = translationY
-            }
-        })
-        val bottomSheetHandle = findViewById<View>(R.id.bottomSheetHandle)
-        bottomSheetHandle.setOnClickListener {
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+    private fun setUpFab(){
+        binding.fabSchedule.setOnClickListener {
+            val intent = Intent(this, ScheduleActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
     }
-
+   private fun setUpBottomSheet(){
+       var bottomshet = findViewById<LinearLayout>(R.id.bottomSheet_LA)
+       bottomSheetBehavior = BottomSheetBehavior.from(bottomshet)
+       bottomSheetBehavior.isDraggable = true
+    }
     private fun getCurrentLocation() {
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED){

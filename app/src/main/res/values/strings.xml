@@ -12,4 +12,8 @@
     <string name="mon_may_12">Mon, May 12</string>
     <string name="title_activity_maps2">MapsActivity2</string>
     <string name="_6_scheduled_visit">6 scheduled visit</string>
+    <string name="float_button">float button</string>
+    <string name="schedules">Schedules</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

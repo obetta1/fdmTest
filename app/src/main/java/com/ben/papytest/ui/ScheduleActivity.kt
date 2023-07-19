@@ -4,11 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ben.papytest.R
 import com.ben.papytest.data.PlaceAdapter
 import com.ben.papytest.createDummyData
 import com.ben.papytest.databinding.ActivityScheduleBinding
 
-class ScheduleActivity : AppCompatActivity() {
+class ScheduleActivity : AppCompatActivity(){
     private lateinit var binding: ActivityScheduleBinding
     private lateinit var placeScheduleAdapter: PlaceAdapter
     private lateinit var dataList: List<Any>
@@ -23,12 +24,18 @@ class ScheduleActivity : AppCompatActivity() {
         // Set up the RecyclerView with LinearLayoutManager
         val layoutManager = LinearLayoutManager(this)
         binding.placeRecyclerview.layoutManager = layoutManager
-
         placeScheduleAdapter = PlaceAdapter(dataList, this)
         binding.placeRecyclerview.adapter = placeScheduleAdapter
 
         binding.include.imageView1.setOnClickListener {
             startActivity(Intent(this, MapsActivity::class.java))
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        // this is used to Apply reverse custom animations to the activity transition
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+
     }
 }
