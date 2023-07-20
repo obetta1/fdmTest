@@ -6,19 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/bottomSheet_LA"
+    android:background="@drawable/bottomsheet_background"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardElevation="@dimen/margin_12dp"
-    app:cardCornerRadius="@dimen/margin_12dp"
+    app:cardCornerRadius="@dimen/margin_32dp"
     android:background="@drawable/bottomsheet_background"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="643dp"
         android:layout_marginTop="@dimen/margin_20dp"
         android:background="@drawable/bottomsheet_background">
 
@@ -61,8 +62,8 @@
             <ImageView
                 android:layout_width="@dimen/margin_42dp"
                 android:layout_height="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_40dp"
                 android:layout_marginVertical="@dimen/margin_12dp"
+                android:layout_marginTop="@dimen/margin_40dp"
                 android:contentDescription="@string/image_des"
                 android:src="@drawable/location_icon" />
         </androidx.cardview.widget.CardView>
@@ -107,12 +108,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_12dp"
-            android:layout_marginBottom="@dimen/margin_61dp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#D8D8D8"
             app:cardCornerRadius="@dimen/margin_17dp"
-            app:layout_constraintBottom_toTopOf="@+id/view"
             app:layout_constraintStart_toStartOf="@+id/address_tv"
             app:layout_constraintTop_toBottomOf="@+id/address_tv">
 
@@ -145,10 +144,10 @@
             android:layout_width="40dp"
             android:layout_height="4dp"
             android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/status_CV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -46,6 +46,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         map = googleMap
         getCurrentLocation()
     }
+
+    override fun onStart() {
+        super.onStart()
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.setPeekHeight(400)
+    }
     private fun setUpFab(){
         binding.fabSchedule.setOnClickListener {
             val intent = Intent(this, ScheduleActivity::class.java)
